@@ -1,6 +1,7 @@
 {
     SubShader
     {
+        //N.B: This Assets include is only considered thanks to a hack in VFXCodeGenerator.cs(L314)
         ${VFXInclude("Assets/Editor/VFXCustomParticleHeader.template")}
         ${VFXIncludeRP("Templates/ParticleMeshesLit/PassSelection.template")}
         ${VFXIncludeRP("Templates/ParticleMeshesLit/PassDepth.template"),IS_OPAQUE_PARTICLE}

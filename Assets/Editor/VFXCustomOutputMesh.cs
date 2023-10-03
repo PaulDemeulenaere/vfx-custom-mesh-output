@@ -17,6 +17,8 @@ namespace UnityEditor.VFX.URP
             {
                 foreach (var inputProperty in base.inputProperties)
                     yield return inputProperty;
+
+                //This yield return will automatically add a slot in this output.
                 yield return new VFXPropertyWithValue(new VFXProperty(typeof(float), "customDeformation"));
             }
         }
@@ -30,6 +32,7 @@ namespace UnityEditor.VFX.URP
             {
                 if (slot.name == "customDeformation")
                 {
+                    //It makes this value readable on GPU thanks to "${VFXLoadParameter:{customDeformation}}" in template.
                     yield return slot;
                     break;
                 }
