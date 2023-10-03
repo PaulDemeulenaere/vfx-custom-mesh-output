@@ -1,6 +1,8 @@
 # VFX Custom Output Mesh
 
-This repository is an experiment and boiler plate of creating a custom template output. This is *not* a recommended approach since new Shader Graph integration is providing the same feature.
+This repository is an experiment and boiler plate of creating a custom template output.
+
+This is **not** a recommended approach since new Shader Graph integration is providing the same feature with URP & HDRP.
 
 ![README_VFX_Custom_Mesh](README_VFX_Custom_Mesh.gif)
 
