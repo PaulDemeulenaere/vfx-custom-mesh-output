@@ -1,9 +1,17 @@
+//This file is a copy of Packages\com.unity.visualeffectgraph@14.0.9\Shaders\VFXParticleCommon.template
+
 ${VFXBegin:VFXVertexCommonProcess}
 
-//CUSTOM MINIMAL LATE TWEAK
-vPos *= 2.0f;
+//BEGIN: CUSTOM MINIMAL LATE TWEAK
+vPos = mul(elementToVFX,float4(inputVertexPosition,1.0f)).xyz;
+
+//Load parameter from slot declared in VFXCustomOutputMesh
+${VFXLoadParameter:{customDeformation}}
+vPos += customDeformation * normalWS * 0.1f;
+
 csPos = TransformPositionVFXToClip(vPos);
 o.VFX_VARYING_POSCS = csPos;
+//END CUSTOM MINIMAL LATE TWEAK
 
 #if VFX_USE_COLOR_CURRENT && defined(VFX_VARYING_COLOR)
 o.VFX_VARYING_COLOR = attributes.color;

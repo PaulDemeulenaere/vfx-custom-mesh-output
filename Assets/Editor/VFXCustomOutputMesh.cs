@@ -17,8 +17,22 @@ namespace UnityEditor.VFX.URP
             {
                 foreach (var inputProperty in base.inputProperties)
                     yield return inputProperty;
-
                 yield return new VFXPropertyWithValue(new VFXProperty(typeof(float), "customDeformation"));
+            }
+        }
+
+        protected override IEnumerable<VFXNamedExpression> CollectGPUExpressions(IEnumerable<VFXNamedExpression> slotExpressions)
+        {
+            foreach (var gpuExpression in base.CollectGPUExpressions(slotExpressions))
+                yield return gpuExpression;
+
+            foreach (var slot in slotExpressions)
+            {
+                if (slot.name == "customDeformation")
+                {
+                    yield return slot;
+                    break;
+                }
             }
         }
     }

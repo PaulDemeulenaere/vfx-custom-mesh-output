@@ -1,3 +1,5 @@
+//This file is a copy of com.unity.visualeffectgraph@14.0.9\Shaders\VFXParticleHeader.template
+
 ${VFXShaderTags}
 
 ${VFXInclude("Assets/Editor/VFXCustomParticleCommon.template")}
